@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyBrowserApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OKV-eO-8A3">
+                                <rect key="frame" x="10" y="30" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go" textContentType="url"/>
+                            </textField>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-rm-lnm">
+                                <rect key="frame" x="0.0" y="70" width="375" height="553"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-EL-X01">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="←" id="Icd-HA-jm3">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="UFf-dC-Eq0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="→" id="r6a-Gc-ttO">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="nyZ-ZP-0DL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="y1C-mf-8a8"/>
+                                    <barButtonItem systemItem="refresh" id="maj-Mp-EoB">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="Oix-Vm-msb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fT7-08-uNf">
+                                <rect key="frame" x="350" y="35" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OKV-eO-8A3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="3rT-J5-O5I"/>
+                            <constraint firstItem="nAB-EL-X01" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Xf-5o-DBX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OKV-eO-8A3" secondAttribute="trailing" constant="10" id="RHh-xj-J8a"/>
+                            <constraint firstItem="JUn-rm-lnm" firstAttribute="top" secondItem="OKV-eO-8A3" secondAttribute="bottom" constant="10" id="S92-j1-OnC"/>
+                            <constraint firstItem="OKV-eO-8A3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Sxk-iz-X0t"/>
+                            <constraint firstItem="JUn-rm-lnm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XaQ-fc-d5V"/>
+                            <constraint firstItem="nAB-EL-X01" firstAttribute="top" secondItem="JUn-rm-lnm" secondAttribute="bottom" id="elU-sP-U3s"/>
+                            <constraint firstItem="JUn-rm-lnm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jFA-cd-PGX"/>
+                            <constraint firstItem="nAB-EL-X01" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uML-ei-CKD"/>
+                            <constraint firstItem="nAB-EL-X01" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zwX-eJ-7wq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Icd-HA-jm3" id="VDc-mi-feG"/>
+                        <outlet property="browserWebView" destination="JUn-rm-lnm" id="kwr-Nd-OBF"/>
+                        <outlet property="forwardButton" destination="r6a-Gc-ttO" id="5Cb-11-yXi"/>
+                        <outlet property="reloadButton" destination="maj-Mp-EoB" id="pTb-i4-qg6"/>
+                        <outlet property="urlTextField" destination="OKV-eO-8A3" id="tHC-n0-mP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
