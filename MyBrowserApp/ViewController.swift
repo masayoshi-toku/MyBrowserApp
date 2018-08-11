@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var browserWebView: UIWebView!
@@ -23,7 +23,18 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.browserWebView.delegate = self
+        self.urlTextField.delegate = self
         self.browserActivityIndicatorView.hidesWhenStopped = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField != self.urlTextField {
+            return true
+        }
+        if let urlString = textField.text {
+            self.loadURL(urlString: urlString)
+        }
+        return true
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -35,6 +46,15 @@ class ViewController: UIViewController, UIWebViewDelegate {
             self.urlTextField.text = urlString
         }
         self.browserActivityIndicatorView.stopAnimating()
+        self.backButton.isEnabled = self.browserWebView.canGoBack
+        self.forwardButton.isEnabled = self.browserWebView.canGoForward
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField != self.urlTextField {
+            return
+        }
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,12 +99,15 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
 
     @IBAction func goBack(_ sender: Any) {
+        self.browserWebView.goBack()
     }
     
     @IBAction func goForward(_ sender: Any) {
+        self.browserWebView.goForward()
     }
     
     @IBAction func reload(_ sender: Any) {
+        self.browserWebView.reload()
     }
     
 }
