@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,15 +50,16 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fT7-08-uNf">
-                                <rect key="frame" x="350" y="35" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ge7-bX-lgl">
+                                <rect key="frame" x="334" y="35" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OKV-eO-8A3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="3rT-J5-O5I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ge7-bX-lgl" secondAttribute="trailing" constant="5" id="5VK-JI-iVv"/>
                             <constraint firstItem="nAB-EL-X01" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Xf-5o-DBX"/>
+                            <constraint firstItem="Ge7-bX-lgl" firstAttribute="centerY" secondItem="OKV-eO-8A3" secondAttribute="centerY" id="NXr-1C-AkT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OKV-eO-8A3" secondAttribute="trailing" constant="10" id="RHh-xj-J8a"/>
                             <constraint firstItem="JUn-rm-lnm" firstAttribute="top" secondItem="OKV-eO-8A3" secondAttribute="bottom" constant="10" id="S92-j1-OnC"/>
                             <constraint firstItem="OKV-eO-8A3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Sxk-iz-X0t"/>
@@ -71,6 +73,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Icd-HA-jm3" id="VDc-mi-feG"/>
+                        <outlet property="browserActivityIndicatorView" destination="Ge7-bX-lgl" id="Euu-c4-HsL"/>
                         <outlet property="browserWebView" destination="JUn-rm-lnm" id="kwr-Nd-OBF"/>
                         <outlet property="forwardButton" destination="r6a-Gc-ttO" id="5Cb-11-yXi"/>
                         <outlet property="reloadButton" destination="maj-Mp-EoB" id="pTb-i4-qg6"/>
